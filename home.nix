@@ -13,6 +13,7 @@
       chromium
       bat 
       splayer
+      zsh-powerlevel10k
     ];
     
     programs.kitty = {

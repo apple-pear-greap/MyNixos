@@ -21,16 +21,15 @@
       };
 
       initContent = ''
-        setopt auto_cd
         setopt interactive_comments
         setopt share_history
         setopt hist_ignore_dups
-        setopt hist_reduce_blanks
         setopt extended_glob
 
         autoload -Uz compinit
         compinit -u
 
+            source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       '';
     };
   }
