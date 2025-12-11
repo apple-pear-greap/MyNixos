@@ -11,9 +11,12 @@
   inputs = {
 	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 	daeuniverse.url = "github:daeuniverse/flake.nix";
+	# import Home Manager
+	home-manager.url = "github:nix-community/home-manager";
+	home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, daeuniverse, ... }@inputs: {
+  outputs = { self, nixpkgs, daeuniverse, home-manager, ... }@inputs: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -23,6 +26,15 @@
           ./configuration.nix
           daeuniverse.nixosModules.dae
           daeuniverse.nixosModules.daed
+	  
+  	  # import Home Manager as Nixos modules
+	  home-manager.nixosModules.home-manager
+	  {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.cerydra = import ./home.nix;
+	    home-manager.backupFileExtension = "backup";
+	  };
         ];
       };
     };
