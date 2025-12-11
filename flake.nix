@@ -4,7 +4,6 @@
     nixConfig = {
     # 额外添加国内源
     extra-substituters = [
-      "https://mirror.sjtu.edu.cn/nix-channels/store"
       "https://mirrors.ustc.edu.cn/nix-channels/store"
     ];
   };
@@ -15,17 +14,17 @@
   };
 
   outputs = { self, nixpkgs, daeuniverse, ... }@inputs: {
-	nixosConfigurations = {
-	nixos = nixpkgs.lib.nixosSystem {
-	  system = "x86_64-linux";
-	  specialArgs = { inherit inputs; };
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
 
-	  modules = [
-		./configuration.nix
-		daeuniverse.nixosModules.dae
-		daeuniverse.nixosModules.daed
-	  ];
-	};
+        modules = [
+          ./configuration.nix
+          daeuniverse.nixosModules.dae
+          daeuniverse.nixosModules.daed
+        ];
       };
+    };
   };
 }

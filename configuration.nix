@@ -145,6 +145,7 @@
     vscode
     splayer
     chromium
+    bat
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
