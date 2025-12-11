@@ -31,16 +31,6 @@
         autoload -Uz compinit
         compinit -u
 
-        eval "$(starship init zsh)"
       '';
-    };
-
-    programs.starship = {
-    enable = true;
-    # 如果想在 bash 也用：
-    # enableBashIntegration = true;
-
-    settings = {
-      };
     };
   }
