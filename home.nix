@@ -3,12 +3,18 @@
     home.username = "cerydra";
     home.homeDirectory = "/home/cerydra";
     home.stateVersion = "25.11";
-    programs.bash = {
-      enable = true;
-      shellAliases = {
-        btw = "echo I use Nixos, btw";
-    };
-  };
+    home.packages = with pkgs; [
+      fastfetch
+      vscode
+      chromium
+      bat 
+      splayer
+    ];
+    
+    imports = [
+      ./homepkgs/zsh.nix
+    ];
+
     programs.kitty = {
       enable = true;
       theme = "Nord";

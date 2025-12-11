@@ -124,14 +124,14 @@
     isNormalUser = true;
     description = "Cerydra";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
-    #  thunderbird
     ];
   };
 
-  # Install firefox.
+  # Install some programs for system
   programs.firefox.enable = true;
-
+  programs.zsh.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -140,12 +140,12 @@
     vim
     wget
     git
-    fastfetch
-    kitty
-    vscode
-    splayer
-    chromium
-    bat
+    # fastfetch
+    # kitty
+    # vscode
+    # splayer
+    # chromium
+    # bat
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
