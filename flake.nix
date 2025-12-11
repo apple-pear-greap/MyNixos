@@ -34,7 +34,7 @@
 	    home-manager.useUserPackages = true;
 	    home-manager.users.cerydra = import ./home.nix;
 	    home-manager.backupFileExtension = "backup";
-	  };
+	  }
         ];
       };
     };
