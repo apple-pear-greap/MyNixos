@@ -9,4 +9,15 @@
         btw = "echo I use Nixos, btw";
     };
   };
+    programs.kitty = {
+      enable = true;
+      theme = "Nord";
+      font = {
+	name = "JetBrains Mono";
+	size = 14;
+      };
+      settings = {
+	confirm_os_window_close = 0;
+      };
+    };
 }
