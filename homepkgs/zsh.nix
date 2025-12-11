@@ -3,15 +3,16 @@
       programs.zsh = {
       enable = true;
 
-      enableCompletion = true;
-      syntaxHighlighting.enable = true;
-      autosuggestion.enable = true;
+       enableCompletion = true;
+       syntaxHighlighting.enable = true;
+       autosuggestion.enable = true;
 
       shellAliases = {
         ll = "ls -alF";
         la = "ls -A";
         l = "ls -CF";
         gs = "git status";
+	nsr = "sudo nixos-rebuild switch";
       };
 
       history = {
@@ -29,7 +30,10 @@
         autoload -Uz compinit
         compinit -u
 
-            source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        if [[ -r ~/.p10k.zsh ]]; then
+        source ~/.p10k.zsh
+        fi
       '';
     };
   }
