@@ -4,9 +4,8 @@
       enable = true;
 
       enableCompletion = true;
-
       syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
+      autosuggestion.enable = true;
 
       shellAliases = {
         ll = "ls -alF";
@@ -21,7 +20,7 @@
         path = "${config.xdg.dataHome}/zsh/history";
       };
 
-      initExtra = ''
+      initContent = ''
         setopt auto_cd
         setopt interactive_comments
         setopt share_history
@@ -31,6 +30,17 @@
 
         autoload -Uz compinit
         compinit -u
+
+        eval "$(starship init zsh)"
       '';
     };
-}
+
+    programs.starship = {
+    enable = true;
+    # 如果想在 bash 也用：
+    # enableBashIntegration = true;
+
+    settings = {
+      };
+    };
+  }

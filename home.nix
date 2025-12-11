@@ -1,5 +1,9 @@
 { config, pkgs, ...}:
 {
+    imports = [
+      ./homepkgs/zsh.nix
+    ];
+
     home.username = "cerydra";
     home.homeDirectory = "/home/cerydra";
     home.stateVersion = "25.11";
@@ -11,10 +15,6 @@
       splayer
     ];
     
-    imports = [
-      ./homepkgs/zsh.nix
-    ];
-
     programs.kitty = {
       enable = true;
       theme = "Nord";
